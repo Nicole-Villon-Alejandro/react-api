@@ -5,15 +5,21 @@ function App() {
 
   const endpoint = 'localhost:3000/api/posts'
 
+  const [ posts, setPosts ] = useState([]);
+
 
   const fetchPost = () => {
-    axios.get()
-  }
+    axios.get( endpoint ).then( (res) => setPosts(res.data)).catch (err => console.error(err));
+        
+  };
+
+  useEffect(fetchPost, [])
 
   
 
   return (
     <>
+      <h1>Posts</h1>
       
      
      
