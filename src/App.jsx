@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 
 function App() {
 
-  const endpoint = 'localhost:3000/api/posts'
+  const endpoint = 'http://localhost:3000/api/posts'
 
   const [ posts, setPosts ] = useState([]);
 
@@ -20,6 +20,45 @@ function App() {
   return (
     <>
       <h1>Posts</h1>
+
+     <div className="container">
+      <div className="table-responsive">
+        <table className="table table-primary">
+          <thead>
+            <tr>
+              <th scope="col">
+                Id
+              </th>
+              <th scope="col">Title</th>
+              <th scope="col">Image</th>
+            </tr>
+          </thead>
+          <tbody>
+            { posts.map((elem) => {
+              return (
+                <tr key={elem.id}>
+                  <td>
+                    {elem.id}
+                  </td>
+                  <td>{elem.title}</td>
+                  <td>{elem.image}</td>
+                </tr>
+              ); 
+            }
+            )
+            }
+
+          </tbody>
+
+        </table>
+      </div>
+     </div>
+
+
+
+
+
+
       
      
      
